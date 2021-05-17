@@ -1,0 +1,106 @@
+\documentclass[modern,pdftex]{aastex631}
+\def\lya{\mbox {Ly$\alpha$}}
+\def\lyb{\mbox {Ly$\beta$}}
+
+\begin{document}
+
+{\bf Excerpt from COS / PG quasars paper on UV doublet analysis:}
+
+We characterize the doublet absorption features (N~V
+$\lambda\lambda$1238, 1243; O~VI $\lambda\lambda$1028, 1032; and P~V
+$\lambda\lambda$1119, 1128) in the quasar spectra using model
+fits. Our goal is to measure the kinematics of the outflowing gas
+associated with these features (mass, momentum, and energy estimates
+are beyond the scope of the present paper, except for a few special
+cases discussed in Section X. If the lines within these doublets were
+unblended, fits to the intensity profiles of the individual lines
+would thus be sufficient. However, the doublet lines are often
+strongly blended because of (1) strong blueshifts due to high outflow
+velocities and (2) broad line profiles due to multiple clouds along
+the line of sight and/or large linewidths. We thus adopt the doublet
+fitting procedure of Rupke et al. (2005), which is optimized for
+blended doublets. In this method, the total absorption profiles of a
+feature are fit as the product of multiple doublet components. Each
+component is a Gaussian in optical depth $\tau$ vs. wavelength with a
+constant covering factor $C_f$. Within each doublet the two lines have
+a constant $\tau$ ratio. This allows us to simultaneously fit $\tau$
+and $C_f$, which are otherwise degenerate in the fit of a single
+line. The free parameters in the fit to each doublet component are
+thus $C_f$, peak $\tau$, velocity width, and central wavelength.
+
+The general expression for the normalized intensity of a doublet
+component is
+\begin{eqnarray}
+  I(\lambda) = 1 - C_f + C_f e^{-\tau_\mathrm{low}(\lambda)-\tau_\mathrm{high}(\lambda)},
+\label{eq:I_lambda}
+\end{eqnarray}
+where $C_f$ is the line-of-sight covering factor (or the fraction of
+the background source producing the continuum that is covered by the
+absorbing gas; though scattering into the line of sight can also play
+a role) and $\tau_\mathrm{low}$ and $\tau_\mathrm{high}$ are the
+optical depths of the lower- and higher-wavelength lines in the
+doublet (Rupke et al. 2005). The covering factor is the same for both
+lines of the doublet. The peak (and total) optical depths of the
+resonant doublet lines in O~VI, N~V, and P~V are related by a constant
+factor $\tau_{low}/\tau_{high} = 2.00$ because of the 4-fold
+degeneracy in the upper state of the higher energy transition compared
+to the 2-fold degeneracy in the lower state. (The higher degeneracy is
+due in turn to its higher total angular momentum quantum number
+$j$). For more than one doublet component, we use the product of the
+intensities of the individual components, which is the
+partially-overlapping case of Rupke et al. (2005).
+
+Because the doublet profile shape--i.e., relative depths of the two
+lines and trough shape--does not change significantly above optical
+depths $\tau_{high}$ of a few, we set a limit of $\tau_{high} \le
+5$. Out of 59 O~VI components, 19 have $\tau_{high} = 5$, or 32\%. For
+N~V, 13 of 62 components have $\tau_{high} = 5$, or 21\%.
+
+The results from these fits are also used to calculate the total
+velocity-integrated equivalent widths of the absorbers in the object's
+rest frame,
+\begin{eqnarray}
+  W_{\rm eq} = \int [1 - f(v)] dv, 
+\label{eq:weq}
+\end{eqnarray}
+the weighted average outflow velocity, 
+\begin{eqnarray}
+  v_{\rm wtavg} = \frac{\int v [1 - f(v)]dv }{W_{\rm eq}}, 
+\label{eq:vwtavg}
+\end{eqnarray}
+and the weighted outflow velocity dispersion,
+\begin{eqnarray}
+  \sigma_{\rm wtavg} = \left(\frac{\int (v - v_{\rm wtavg})^2 [1 -
+  f(v)] dv}{W_{\rm eq}}\right)^{\frac{1}{2}},
+\label{eq:sigmawtavg}
+\end{eqnarray}
+a measure of the second moment in velocity space of the absorbers in
+each quasar. These quantities are similar to those defined by Trump et
+al.\ (2006), but without the constraints on depth, width, or
+velocity. These constraints have little effect on the results for our
+sample, but we find it useful to include possibly inflowing absorbers.
+
+The optical depths and covering factors derived from our fitting
+scheme are approximations. Though it is a physically-motivated way to
+decompose strongly-blended doublets, the method implicitly assumes
+that the velocity dependences of $C_f$ and $\tau$ can be described as
+the sum of discrete independent Gaussians. In reality, they are
+probably more complex functions of velocity (e.g., Arav et al. 2005,
+2008). In several cases--the N~V absorbers in PG~1001$+$054,
+PG~1411$+$442, PG~1617$+$175, and PG2214$+$139, and the O~VI absorbers
+in PG~1001$+$054, PG~1004$+$130)--the fits include very broad
+components that cannot be distinguished from complexes of narrower
+lines given the data quality. In two O~VI absorbers (PG~0923$+$201 and
+PG~1309$+$355), there is no data on the blue line because it is
+contaminated by geocoronal \lya, so any constraints on $\tau$ and
+$C_f$ come solely from line shape. Finally, in four O~VI fits
+(PG~1001$+$054, PG~1004$+$130, PG~1126$-$041, and PG~1617$+$175, the
+\lyb\ and O~VI absorption blend together and cannot be easily
+separated in the fit. In three of these cases (all but PG~1001$+$054),
+we simply fit the visible absorption as due solely to O~VI at
+wavelengths in which there is at least some O~VI absorption
+contributing to the spectrum. For the fourth case, we are able to
+roughly separate the lines by fitting only down to a specific
+wavelength.
+
+\end{document}
