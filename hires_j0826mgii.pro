@@ -4,12 +4,15 @@ function hires_j0826mgii,redshift,rootdir
    gal = 'j0826'
    redshift = 0.603d
    readcol,directoryname+'spec/J0826_stitched_v1.txt', $
-           wavelength, flux_unnorm, var, cont, flux, $
+           wavelength_air, flux_unnorm, var, cont, flux, $
            FORMAT='D,D,D,D,D',/silent,skip=2
-   error = sqrt(var)
+;  normalize variance
+   error = sqrt(var)/(flux_unnorm/flux)
+;  convert to vacuum wavelengths
+   airtovac, wavelength_air, wavelength
 
    fittedline = 'MgII'
-   restred = 2802.704d
+   restred = 2803.530d ; vacuum
    
    bad = 1d99
    ncols = 1
@@ -30,7 +33,7 @@ function hires_j0826mgii,redshift,rootdir
                VALUE_LOCATE(wavelength,linefitreg[1])]
    lineplotind=[VALUE_LOCATE(wavelength,lineplotreg[0]),$
                 VALUE_LOCATE(wavelength,lineplotreg[1])]
-   weight=1d/var
+   weight=1d/error^2d
 
 ;   contplotreg=[4400,4600]
 ;   contplotind=[VALUE_LOCATE(wavelength,contplotreg[0]),$
@@ -86,7 +89,8 @@ function hires_j0826mgii,redshift,rootdir
     doubletem_siglim = [1d,1000d]
     doubletem_fix = bytarr(ncols,nrows,comps_em,4)
     doubletem_fix[0,0,*,0] = 1b
-;    doubletem_fix[0,0,*,2] = 1b
+    ;doubletem_fix[0,0,*,2] = 1b
+    doubletem_fix[0,0,*,3] = 1b
     doubletem_finit = emflux
     doubletem_rinit = emratio
 
@@ -108,6 +112,7 @@ function hires_j0826mgii,redshift,rootdir
       doubletabs_fix: doubletabs_fix,$
 ;
       taumax: 10d,$
+      mcniter: 1000,$
 ;
       ndoubletem: ndoubletem,$
       doubletem_zinit: doubletem_zinit,$

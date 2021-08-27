@@ -4,12 +4,15 @@ function hires_j0901mgii,redshift
    gal = 'j0901'
    redshift = 0.459d
    readcol,directoryname+'spec/J0901_stitched_v1.txt', $
-           wavelength, flux_unnorm, var, cont, flux, $
+           wavelength_air, flux_unnorm, var, cont, flux, $
            FORMAT='D,D,D,D,D',/silent,skip=2
-   error = sqrt(var)
+;  normalize variance
+   error = sqrt(var)/(flux_unnorm/flux)
+;  convert to vacuum wavelengths
+   airtovac, wavelength_air, wavelength
 
    fittedline = 'MgII'
-   restred = 2802.704d
+   restred = 2803.530d ; vacuum
    
    bad = 1d99
    ncols = 1
@@ -91,6 +94,7 @@ function hires_j0901mgii,redshift
         doubletem_siginit[*,*,I] += profilesig_em[I]
     doubletem_siglim = [1d,1000d]
     doubletem_fix = bytarr(ncols,nrows,comps_em,4)
+    doubletem_fix[0,0,*,3] = 1b
     doubletem_finit = emflux
     doubletem_rinit = emratio
 
@@ -103,6 +107,7 @@ function hires_j0901mgii,redshift
 ;
       maxncomp: comps,$
       taumax: 10,$
+      mcniter: 1000,$
 ;
       ndoubletabs: ndoubletabs,$
       doubletabs_cfinit: doubletabs_cfinit,$

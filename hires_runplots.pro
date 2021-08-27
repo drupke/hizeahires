@@ -4,9 +4,11 @@ pro hires_runplots
    rootdir = '/Users/drupke/Box Sync/hizeahires/'
    fitdir = rootdir+'fits/'
 
-;   ifsf_fitdoublet,fitdir,'j0826','MgII','hires_j0826mgii'
+;   ifsf_fitdoublet,fitdir,'j0826','MgII','hires_j0826mgii',nsplit=10,$
+;      argslinelist={vacuum: 1b}
 ;   ifsf_fitmultiplet,fitdir,'j0826','FeII','hires_j0826feii'
-;   ifsf_fitdoublet,fitdir,'j0901','MgII','hires_j0901mgii'
+;   ifsf_fitdoublet,fitdir,'j0901','MgII','hires_j0901mgii',nsplit=10,$
+;      argslinelist={vacuum: 1b}
 ;   ifsf_fitmultiplet,fitdir,'j0901','FeII','hires_j0901feii'
 ;   ifsf_fitdoublet,fitdir,'j0905','MgII','hires_j0905mgii'
 ;   ifsf_fitmultiplet,fitdir,'j0905','FeII','hires_j0905feii'
